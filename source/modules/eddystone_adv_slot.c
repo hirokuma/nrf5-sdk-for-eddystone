@@ -29,10 +29,11 @@ static eddystone_adv_slot_t m_slots[APP_MAX_ADV_SLOTS];
 void eddystone_adv_slots_init( ble_ecs_init_t * p_ble_ecs_init )
 {
     //Copy length corresponds to the length of JUST the data in the frame, excluding frame type
-    uint16_t copy_length = p_ble_ecs_init->p_init_vals->rw_adv_slot.char_length - 1;
+    //uint16_t copy_length = p_ble_ecs_init->p_init_vals->rw_adv_slot.char_length - 1;
     ret_code_t err_code;
     for (uint8_t i = 0; i < APP_MAX_ADV_SLOTS; i++)
     {
+#if 0
         if (i == 0)
         {
             m_slots[i].slot_no = i;
@@ -98,6 +99,15 @@ void eddystone_adv_slots_init( ble_ecs_init_t * p_ble_ecs_init )
             memset(&(m_slots[i].adv_frame), 0, ECS_AES_KEY_SIZE);
             m_slots[i].is_configured = false;
         }
+#else
+        m_slots[i].slot_no = i;
+        m_slots[i].adv_intrvl = 100;    //m_slots[0].adv_intrvl;
+        m_slots[i].radio_tx_pwr = m_slots[0].radio_tx_pwr;
+        memset((m_slots[i]).frame_rw_buffer, 0, 1);
+        m_slots[i].frame_rw_length = 0;
+        memset(&(m_slots[i].adv_frame), 0, ECS_AES_KEY_SIZE);
+        m_slots[i].is_configured = false;
+#endif
     }
 }
 

@@ -95,10 +95,10 @@ static void on_ble_evt(ble_evt_t * p_ble_evt)
  */
 static void ble_evt_dispatch(ble_evt_t * p_ble_evt)
 {
-    ble_conn_params_on_ble_evt(p_ble_evt);
+    //ble_conn_params_on_ble_evt(p_ble_evt);
     eddystone_advertising_manager_on_ble_evt(p_ble_evt);
-    ble_ecs_on_ble_evt(&m_ble_ecs, p_ble_evt);
-    on_ble_evt(p_ble_evt);
+    //ble_ecs_on_ble_evt(&m_ble_ecs, p_ble_evt);
+    //on_ble_evt(p_ble_evt);
     ble_advertising_on_ble_evt(p_ble_evt);
 }
 
@@ -125,12 +125,12 @@ static void sys_evt_dispatch(uint32_t evt_id)
 static void ble_stack_init(void)
 {
     uint32_t err_code;
-    nrf_clock_lf_cfg_t lf_clock_config;
-    lf_clock_config.source = NRF_CLOCK_LF_SRC_XTAL;
-    lf_clock_config.rc_ctiv = 0;
-    lf_clock_config.rc_temp_ctiv = 0;
-    lf_clock_config.xtal_accuracy = NRF_CLOCK_LF_XTAL_ACCURACY_20_PPM;
-
+    nrf_clock_lf_cfg_t lf_clock_config = NRF_CLOCK_LFCLKSRC;
+//    lf_clock_config.source = NRF_CLOCK_LF_SRC_XTAL;
+//    lf_clock_config.rc_ctiv = 0;
+//    lf_clock_config.rc_temp_ctiv = 0;
+//    lf_clock_config.xtal_accuracy = NRF_CLOCK_LF_XTAL_ACCURACY_20_PPM;
+    
     // Initialize the SoftDevice handler module.
     SOFTDEVICE_HANDLER_INIT(&lf_clock_config, NULL);
 
@@ -793,6 +793,7 @@ static void ecs_read_evt_handler(ble_ecs_t        * p_ecs,
 static void services_and_modules_init(void)
 {
     ret_code_t err_code;
+#if 0
     ble_ecs_init_t ecs_init;
     ble_ecs_init_params_t init_params;
     int8_t tx_powers[ECS_NUM_OF_SUPORTED_TX_POWER] = ECS_SUPPORTED_TX_POWER;
@@ -843,9 +844,11 @@ static void services_and_modules_init(void)
 
     err_code = ble_ecs_init(&m_ble_ecs, &ecs_init);
     APP_ERROR_CHECK(err_code);
+#endif
 
     //Initialize the slots with the initial values of the characteristics
-    eddystone_adv_slots_init(&ecs_init);
+//    eddystone_adv_slots_init(&ecs_init);
+    eddystone_adv_slots_init(NULL);
 
     //Initialize the security module
     eddystone_security_init_t security_init =

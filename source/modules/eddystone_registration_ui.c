@@ -4,6 +4,7 @@
 #include "app_timer.h"
 #include "eddystone_app_config.h"
 
+#if 0
 #define RETURN_IF_ERROR(x) if(x != NRF_SUCCESS) return x
 
 static eddystone_registration_start_cb_t adv_start_callback;
@@ -49,3 +50,9 @@ ret_code_t eddystone_registration_ui_init( eddystone_registration_start_cb_t adv
     adv_start_callback = adv_start_cb;
     return eddystone_registration_button_init();
 }
+#else
+ret_code_t eddystone_registration_ui_init( eddystone_registration_start_cb_t adv_start_cb )
+{
+    return 0;
+}
+#endif
