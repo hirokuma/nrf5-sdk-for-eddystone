@@ -844,6 +844,8 @@ static void services_and_modules_init(void)
 
     err_code = ble_ecs_init(&m_ble_ecs, &ecs_init);
     APP_ERROR_CHECK(err_code);
+#else
+    m_ble_ecs.uuid_type = BLE_UUID_TYPE_BLE;
 #endif
 
     //Initialize the slots with the initial values of the characteristics
