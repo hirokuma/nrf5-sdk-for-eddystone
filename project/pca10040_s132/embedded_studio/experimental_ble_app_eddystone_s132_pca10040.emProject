@@ -145,7 +145,7 @@
       <file file_name="$(StudioDir)/samples/SEGGER_RTT.h" />
       <file file_name="$(StudioDir)/samples/SEGGER_RTT_Conf.h" />
       <file file_name="$(StudioDir)/samples/SEGGER_RTT_SES.c" />
-      <file file_name="../../../../nRF5_SDK_11.0.0_89a8197/external/segger_rtt/SEGGER_RTT_printf.c" />
+      <file file_name="../../../../../../external/segger_rtt/SEGGER_RTT_printf.c" />
     </folder>
     <folder Name="Script Files">
       <file file_name="$(PackagesDir)/nRF/Scripts/nRF_Target.js">

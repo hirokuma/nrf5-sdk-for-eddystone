@@ -306,3 +306,13 @@ portion that originates from third-parties.
     - crypto_libs
 
 Note: The crypto_libs folder is not included in this repository but is created by running the setup script.
+
+## hirokuma版
+* 目標
+ * nRF51822(RAM 16KB版)でビルドできるようにする
+ * Keilでは32KBリンク制限でどうしようもなくなったので、SEGGER Embedded Studio(Free版 Release 2.20  Build 2016041303.27545)でやってみる
+ * Windows10上でビルドする
+
+* メモ
+ * existing_sdk_setup.shは、普通にコマンドプロンプトで動作させればよいが、GitなどのBashがいるような気がする。
+ * app_util_platform.hは修正しなくてもビルドできた。
