@@ -470,10 +470,10 @@ static void eddystone_beacon_ecdh_pair_generate(uint8_t * p_priv_buffer, uint8_t
 
     #ifdef ECDH_PRINT_TEST
 
-    SEGGER_RTT_printf(0, "\r\n********* 4. Generate Beacon public 32-byte ECDH\r\n");
-    SEGGER_RTT_printf(0, "\r\nBEACON PRIVATE ECDH:\r\n ");
+    DEBUG_PRINTF(0, "\r\n********* 4. Generate Beacon public 32-byte ECDH\r\n");
+    DEBUG_PRINTF(0, "\r\nBEACON PRIVATE ECDH:\r\n ");
     PRINT_ARRAY(p_priv_buffer, 32);
-    SEGGER_RTT_printf(0, "\r\nBEACON PUBLIC ECDH:\r\n ");
+    DEBUG_PRINTF(0, "\r\nBEACON PUBLIC ECDH:\r\n ");
     PRINT_ARRAY(p_pub_buffer, 32);
 
     #endif /*ECDH_PRINT_TEST*/
@@ -516,12 +516,12 @@ ret_code_t eddystone_security_client_pub_ecdh_receive( uint8_t slot_no, uint8_t 
 
     #ifdef ECDH_PRINT_TEST
 
-    SEGGER_RTT_printf(0, "\r\n\r\n********* 5. Generate Shared 32-byte ECDH\r\n");
-    SEGGER_RTT_printf(0, "\r\nPHONE PUBLIC ECDH:\r\n ");
+    DEBUG_PRINTF(0, "\r\n\r\n********* 5. Generate Shared 32-byte ECDH\r\n");
+    DEBUG_PRINTF(0, "\r\nPHONE PUBLIC ECDH:\r\n ");
     PRINT_ARRAY(phone_public, 32);
-    SEGGER_RTT_printf(0, "\r\nBEACON PRIVATE ECDH:\r\n ");
+    DEBUG_PRINTF(0, "\r\nBEACON PRIVATE ECDH:\r\n ");
     PRINT_ARRAY(beacon_private, 32);
-    SEGGER_RTT_printf(0, "\r\nSHARED ECDH KEY:\r\n ");
+    DEBUG_PRINTF(0, "\r\nSHARED ECDH KEY:\r\n ");
     PRINT_ARRAY(shared, 32);
 
 
@@ -555,12 +555,12 @@ ret_code_t eddystone_security_client_pub_ecdh_receive( uint8_t slot_no, uint8_t 
 
     #ifdef ECDH_PRINT_TEST
 
-    SEGGER_RTT_printf(0, "\r\n\r\n********* 6. Generate key material from shared ECDH secret using RFC 2104 HMAC-SHA256 without salt\r\n");
-    SEGGER_RTT_printf(0, "\r\nHMAC PUBLIC KEYS:\r\n ");
+    DEBUG_PRINTF(0, "\r\n\r\n********* 6. Generate key material from shared ECDH secret using RFC 2104 HMAC-SHA256 without salt\r\n");
+    DEBUG_PRINTF(0, "\r\nHMAC PUBLIC KEYS:\r\n ");
     PRINT_ARRAY((uint8_t*)public_keys, 64);
-    SEGGER_RTT_printf(0, "\r\nHMAC SHARED KEY INPUT:\r\n ");
+    DEBUG_PRINTF(0, "\r\nHMAC SHARED KEY INPUT:\r\n ");
     PRINT_ARRAY((uint8_t*)shared, 32);
-    SEGGER_RTT_printf(0, "\r\nHMAC DIGEST OUTPUT:\r\n ");
+    DEBUG_PRINTF(0, "\r\nHMAC DIGEST OUTPUT:\r\n ");
     PRINT_ARRAY((uint8_t*)digest, 32);
     #endif /*ECDH_PRINT_TEST*/
 
@@ -571,10 +571,10 @@ ret_code_t eddystone_security_client_pub_ecdh_receive( uint8_t slot_no, uint8_t 
     DEBUG_PRINTF(0,"  hmac(SHA256, salt, 1, digest, 32, digest_salted);  \r\n" ,0);
 
     #ifdef ECDH_PRINT_TEST
-    SEGGER_RTT_printf(0, "\r\n\r\n********* 7. Generate 16-byte key material from shared ECDH secret using RFC 2104 HMAC-SHA256 and salt\r\n");
-    SEGGER_RTT_printf(0, "\r\nHMAC DIGEST INPUT:\r\n ");
+    DEBUG_PRINTF(0, "\r\n\r\n********* 7. Generate 16-byte key material from shared ECDH secret using RFC 2104 HMAC-SHA256 and salt\r\n");
+    DEBUG_PRINTF(0, "\r\nHMAC DIGEST INPUT:\r\n ");
     PRINT_ARRAY((uint8_t*)digest, 32);
-    SEGGER_RTT_printf(0, "\r\nHMAC DIGEST SALTED OUTPUT:\r\n ");
+    DEBUG_PRINTF(0, "\r\nHMAC DIGEST SALTED OUTPUT:\r\n ");
     PRINT_ARRAY((uint8_t*)digest_salted, 16);
     #endif /*ECDH_PRINT_TEST*/
 

@@ -4,7 +4,7 @@
 
 
 
-#define BLE_HANDLER_DEBUG
+//#define BLE_HANDLER_DEBUG
 
 #ifdef BLE_HANDLER_DEBUG
     #include "SEGGER_RTT.h"

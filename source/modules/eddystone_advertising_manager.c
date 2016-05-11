@@ -584,4 +584,7 @@ void eddystone_advertising_manager_init( uint8_t ecs_uuid_type )
 
     slots_advertising_start();
     DEBUG_PRINTF(0,"Advertising Manager Init. \r\n");
+
+    //ボタンがないので自分で呼ぶ
+    eddystone_ble_registr_adv_cb();
 }

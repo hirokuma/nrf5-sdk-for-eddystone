@@ -6,6 +6,7 @@
 
 #define RETURN_IF_ERROR(x) if(x != NRF_SUCCESS) return x
 
+#ifndef BSP_SIMPLE
 static eddystone_registration_start_cb_t adv_start_callback;
 
 /**@brief Function for handling button events from app_button IRQ
@@ -49,3 +50,11 @@ ret_code_t eddystone_registration_ui_init( eddystone_registration_start_cb_t adv
     adv_start_callback = adv_start_cb;
     return eddystone_registration_button_init();
 }
+#else //BSP_SIMPLE
+ret_code_t eddystone_registration_ui_init( eddystone_registration_start_cb_t adv_start_cb )
+{
+    (void)adv_start_cb;
+    return NRF_SUCCESS;
+}
+#endif  //BSP_SIMPLE
+

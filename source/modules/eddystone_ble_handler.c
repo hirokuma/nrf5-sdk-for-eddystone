@@ -149,11 +149,11 @@ static void sys_evt_dispatch(uint32_t evt_id)
 static void ble_stack_init(void)
 {
     uint32_t err_code;
-    nrf_clock_lf_cfg_t lf_clock_config;
-    lf_clock_config.source = NRF_CLOCK_LF_SRC_XTAL;
-    lf_clock_config.rc_ctiv = 0;
-    lf_clock_config.rc_temp_ctiv = 0;
-    lf_clock_config.xtal_accuracy = NRF_CLOCK_LF_XTAL_ACCURACY_20_PPM;
+    nrf_clock_lf_cfg_t lf_clock_config = NRF_CLOCK_LFCLKSRC;
+//    lf_clock_config.source = NRF_CLOCK_LF_SRC_XTAL;
+//    lf_clock_config.rc_ctiv = 0;
+//    lf_clock_config.rc_temp_ctiv = 0;
+//    lf_clock_config.xtal_accuracy = NRF_CLOCK_LF_XTAL_ACCURACY_20_PPM;
 
     // Initialize the SoftDevice handler module.
     SOFTDEVICE_HANDLER_INIT(&lf_clock_config, NULL);
