@@ -12,10 +12,10 @@
 #ifndef BVMCNDT52_H
 #define BVMCNDT52_H
 
-#define BSP_SIMPLE
+//#define BSP_SIMPLE
 
 // LEDs definitions for PCA10028
-#define LEDS_NUMBER    4
+#define LEDS_NUMBER    0
 
 #define LED_START      21
 #define LED_1          21
@@ -40,29 +40,29 @@
 /* all LEDs are lit when GPIO is low */
 #define LEDS_INV_MASK  LEDS_MASK
 
-#define BUTTONS_NUMBER 4
+#define BUTTONS_NUMBER 1
 
-#define BUTTON_START   17
-#define BUTTON_1       17
-#define BUTTON_2       18
-#define BUTTON_3       19
-#define BUTTON_4       20
-#define BUTTON_STOP    20
+#define BUTTON_START   2
+#define BUTTON_1       2
+//#define BUTTON_2       18
+//#define BUTTON_3       19
+//#define BUTTON_4       20
+#define BUTTON_STOP    2
 #define BUTTON_PULL    NRF_GPIO_PIN_PULLUP
 
-#define BUTTONS_LIST { BUTTON_1, BUTTON_2, BUTTON_3, BUTTON_4 }
+#define BUTTONS_LIST { BUTTON_1 }
 
 #define BSP_BUTTON_0   BUTTON_1
-#define BSP_BUTTON_1   BUTTON_2
-#define BSP_BUTTON_2   BUTTON_3
-#define BSP_BUTTON_3   BUTTON_4
+//#define BSP_BUTTON_1   BUTTON_2
+//#define BSP_BUTTON_2   BUTTON_3
+//#define BSP_BUTTON_3   BUTTON_4
 
 #define BSP_BUTTON_0_MASK (1<<BSP_BUTTON_0)
-#define BSP_BUTTON_1_MASK (1<<BSP_BUTTON_1)
-#define BSP_BUTTON_2_MASK (1<<BSP_BUTTON_2)
-#define BSP_BUTTON_3_MASK (1<<BSP_BUTTON_3)
+//#define BSP_BUTTON_1_MASK (1<<BSP_BUTTON_1)
+//#define BSP_BUTTON_2_MASK (1<<BSP_BUTTON_2)
+//#define BSP_BUTTON_3_MASK (1<<BSP_BUTTON_3)
 
-#define BUTTONS_MASK   0x001E0000
+//#define BUTTONS_MASK   0x001E0000
 
 #define RX_PIN_NUMBER  11
 #define TX_PIN_NUMBER  9

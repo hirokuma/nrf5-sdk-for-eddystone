@@ -22,3 +22,5 @@ sdk_external
 copy_merge_hex.sh
 
 project/pca10028_s130/embedded_studio/Output/
+*.emSession
+tags

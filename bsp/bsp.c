@@ -49,9 +49,9 @@
 
 #define ALERT_INTERVAL                         200
 
+static uint32_t         m_app_ticks_per_100ms = 0;
 #if LEDS_NUMBER > 0 && !(defined BSP_SIMPLE)
 static bsp_indication_t m_stable_state        = BSP_INDICATE_IDLE;
-static uint32_t         m_app_ticks_per_100ms = 0;
 static uint32_t         m_indication_type     = 0;
 static uint32_t         m_alert_mask          = 0;
 APP_TIMER_DEF(m_leds_timer_id);
@@ -513,8 +513,8 @@ uint32_t bsp_init(uint32_t type, uint32_t ticks_per_100ms, bsp_event_callback_t 
 {
     uint32_t err_code = NRF_SUCCESS;
 
-#if LEDS_NUMBER > 0 && !(defined BSP_SIMPLE)
     m_app_ticks_per_100ms = ticks_per_100ms;
+#if LEDS_NUMBER > 0 && !(defined BSP_SIMPLE)
     m_indication_type     = type;
 #else
     UNUSED_VARIABLE(ticks_per_100ms);

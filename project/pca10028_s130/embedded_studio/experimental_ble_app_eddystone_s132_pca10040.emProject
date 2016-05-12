@@ -7,6 +7,7 @@
       Placement="Flash"
       Target="nRF51822_xxAA"
       arm_architecture="v6M"
+      arm_compiler_variant="gcc"
       arm_core_type="Cortex-M0"
       arm_endian="Little"
       arm_fp_abi="Softfp"
@@ -57,7 +58,7 @@
         <file file_name="../../../sdk_components/drivers_nrf/delay/nrf_delay.c" />
         <file file_name="../../../sdk_components/drivers_nrf/common/nrf_drv_common.c" />
         <file file_name="../../../sdk_components/drivers_nrf/gpiote/nrf_drv_gpiote.c">
-          <configuration Name="Debug" build_exclude_from_build="Yes" />
+          <configuration Name="Debug" build_exclude_from_build="No" />
         </file>
         <file file_name="../../../sdk_components/drivers_nrf/uart/nrf_drv_uart.c">
           <configuration Name="Debug" build_exclude_from_build="Yes" />
@@ -66,7 +67,7 @@
       </folder>
       <folder Name="nRF_Libraries">
         <file file_name="../../../sdk_components/libraries/button/app_button.c">
-          <configuration Name="Debug" build_exclude_from_build="Yes" />
+          <configuration Name="Debug" build_exclude_from_build="No" />
         </file>
         <file file_name="../../../sdk_components/libraries/util/app_error.c" />
         <file file_name="../../../sdk_components/libraries/timer/app_timer.c" />
@@ -164,16 +165,6 @@
       </file>
       <file file_name="nrf51_Vectors.s">
         <configuration Name="Debug" build_exclude_from_build="No" />
-      </file>
-    </folder>
-    <folder Name="Monitor Mode Debug Files">
-      <configuration Name="Common" build_exclude_from_build="No" />
-      <file file_name="../../jlink_monitor_mode_debug/JLINK_MONITOR_ISR_SES.s">
-        <configuration Name="Debug" build_exclude_from_build="Yes" />
-      </file>
-      <file file_name="../../jlink_monitor_mode_debug/JLINK_MONITOR.h" />
-      <file file_name="../../jlink_monitor_mode_debug/JLINK_MONITOR.c">
-        <configuration Name="Debug" build_exclude_from_build="Yes" />
       </file>
     </folder>
   </project>
