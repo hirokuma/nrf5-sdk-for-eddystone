@@ -2,7 +2,7 @@
 <solution Name="experimental_ble_app_eddystone_s130" target="8" version="2">
   <project Name="nrf51822_xxaa_s130">
     <configuration
-      JLinkExecuteCommandDebugStart="SetMonModeDebug=1;SetMonModeVTableAddr=0x1C000"
+      JLinkExecuteCommandDebugStart="SetMonModeDebug=0;SetMonModeVTableAddr=0x1C000"
       Name="Common"
       Placement="Flash"
       Target="nRF51822_xxAA"
@@ -29,6 +29,7 @@
       gcc_optimization_level="None"
       linker_memory_map_file="$(PackagesDir)/nRF/XML/nRF51822_xxAA_MemoryMap.xml"
       linker_output_format="hex"
+      linker_printf_fp_enabled="No"
       linker_section_placement_file="$(StudioDir)/targets/Cortex_M/flash_placement.xml"
       linker_section_placement_macros="FLASH_START=0x1B000  ;SRAM_START=0x20002080  "
       macros="DeviceHeaderFile=$(PackagesDir)/nRF/CMSIS/Device/Include/nrf.h;DeviceLibraryIdentifier=M0l;DeviceSystemFile=$(PackagesDir)/nRF/CMSIS/Device/Source/system_nrf51.c;DeviceVectorsFile=$(PackagesDir)/nRF/Source/nrf51_Vectors.s;DeviceFamily=nRF"
@@ -149,7 +150,10 @@
     <folder Name="RTT Files">
       <file file_name="../../../../../../external/segger_rtt/RTT_Syscalls_GCC.c" />
       <file file_name="../../../../../../external/segger_rtt/SEGGER_RTT.c" />
-      <file file_name="../../../../../../external/segger_rtt/SEGGER_RTT_printf.c" />
+      <file file_name="../../../../../../external/segger_rtt/SEGGER_RTT_printf.c">
+        <configuration Name="Debug" build_exclude_from_build="No" />
+      </file>
+      <file file_name="$(StudioDir)/samples/SEGGER_RTT_SES.c" />
     </folder>
     <folder Name="Script Files">
       <file file_name="$(PackagesDir)/nRF/Scripts/nRF_Target.js">

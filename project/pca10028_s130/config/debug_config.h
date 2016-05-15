@@ -1,6 +1,7 @@
 #ifndef DEBUG_CONFIG_H__
 #define DEBUG_CONFIG_H__
 
+#if NRF_LOG_USES_RTT == 1
 /*Uncomment if needing printfs to SEGGER_RTT from different modules*/
 // #define SLOT_DEBUG
 // #define ADV_DEBUG
@@ -8,6 +9,8 @@
 // #define FLASH_DEBUG
 // #define SECURITY_DEBUG
 // #define TLM_DEBUG
+
+#endif  //NRF_LOG_USES_RTT
 
 /* Uncomment to Erase All Flash when board is reset */
 // #define ERASE_FLASH_ON_REBOOT

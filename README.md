@@ -316,3 +316,5 @@ Note: The crypto_libs folder is not included in this repository but is created b
 * メモ
  * existing_sdk_setup.shは、普通にコマンドプロンプトで動作させればよいが、GitなどのBashがいるような気がする。
  * app_util_platform.hは修正しなくてもビルドできた。
+ * 各モジュールでのRTT出力の有無は、nrf5-sdk-for-eddystone/project/pca10028_s130/config/debug_config.hで行える。
+ 

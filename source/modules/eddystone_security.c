@@ -719,14 +719,14 @@ void eddystone_security_tlm_to_etlm( uint8_t ik_slot_no, eddystone_tlm_frame_t *
     prp.blocksz = ECS_AES_KEY_SIZE;
 
     #ifdef ETLM_PRINT_TEST
-    SEGGER_RTT_printf(0, "\r\n\r\nAES-128-EAX Encryption/Decryption Example using CIFRA Library\r\n");
+    DEBUG_PRINTF(0, "\r\n\r\nAES-128-EAX Encryption/Decryption Example using CIFRA Library\r\n");
 
-    SEGGER_RTT_printf(0, "\r\nData for encryption\r\n");
-    SEGGER_RTT_printf(0, "PLAINTEXT/TLM: ");
+    DEBUG_PRINTF(0, "\r\nData for encryption\r\n");
+    DEBUG_PRINTF(0, "PLAINTEXT/TLM: ");
     PRINT_ARRAY((uint8_t *)plain, TLM_DATA_SIZE);
-    SEGGER_RTT_printf(0, "NONCE/SALT: ");
+    DEBUG_PRINTF(0, "NONCE/SALT: ");
     PRINT_ARRAY((uint8_t *)nonce, NONCE_SIZE);
-    SEGGER_RTT_printf(0, "KEY/EIK: ");
+    DEBUG_PRINTF(0, "KEY/EIK: ");
     PRINT_ARRAY((uint8_t *)key, EIK_SIZE);
     #endif
     cf_eax_encrypt( &prp,
@@ -743,10 +743,10 @@ void eddystone_security_tlm_to_etlm( uint8_t ik_slot_no, eddystone_tlm_frame_t *
                   );
 
       #ifdef ETLM_PRINT_TEST
-      SEGGER_RTT_printf(0, "\r\nEncryption result\r\n");
-      SEGGER_RTT_printf(0, "eTLM: ");
+      DEBUG_PRINTF(0, "\r\nEncryption result\r\n");
+      DEBUG_PRINTF(0, "eTLM: ");
       PRINT_ARRAY(cipher, TLM_DATA_SIZE);
-      SEGGER_RTT_printf(0, "TAG: ");
+      DEBUG_PRINTF(0, "TAG: ");
       PRINT_ARRAY(tag, sizeof(tag));
 
       cf_eax_decrypt( &prp,
@@ -762,10 +762,10 @@ void eddystone_security_tlm_to_etlm( uint8_t ik_slot_no, eddystone_tlm_frame_t *
                       decrypted_tlm   // Decryption result
                     );
 
-      SEGGER_RTT_printf(0, "\r\nDecryption result\r\n");
-      SEGGER_RTT_printf(0, "PLAINTEXT/TLM: ");
+      DEBUG_PRINTF(0, "\r\nDecryption result\r\n");
+      DEBUG_PRINTF(0, "PLAINTEXT/TLM: ");
       PRINT_ARRAY(decrypted_tlm, TLM_DATA_SIZE);
-      SEGGER_RTT_printf(0, "TAG: ");
+      DEBUG_PRINTF(0, "TAG: ");
       PRINT_ARRAY(tag, sizeof(tag));
       #endif
 
